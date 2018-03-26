@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <title>博客样例</title>
+    <link rel="stylesheet" rev="stylesheet" href="style/default1.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$("#tags a").click(function(){
+            // });
+            $("#tags a").on("click",function(){
+                var tagText = $(this).text();
+                tagText = tagText.substring(0,2);
+                $("#tags a").each(function (index,element) {
+                    if($(this).text().substring(0,2)==tagText){
+                        $(this).css("color","red");
+                        $(this).css("background-color","rgba(218,218,218,0.6)");
+                    }else{
+                        $(this).css("color","gray");
+                        $(this).css("background-color","rgba(218,218,218,0)");
+                    }
+                });
+               /* $(this).css("color","red");
+                $(this).css("background-color","rgba(218,218,218,0.6)");*/
+                $(".divMain .tags").each(function (index,element) {
+                    var thisA = $(this).find("a");
+                    if(tagText=="全部"){
+                        $(this).parent().parent().css("transform","translateX(-1000px)");
+                        setTimeout(function(){
+                            $(element).parent().parent().show();
+                            setTimeout(function(){
+                                $(element).parent().parent().css("transform","translateX(0)");
+                            },100);
+                        },500);
+                    }else{
+                        $(element).parent().parent().css("transform","translateX(-1000px)");
+                        setTimeout(function(){
+                            $(element).parent().parent().hide();
+                            if($(thisA).text().indexOf(tagText)>-1){
+                                //字符串1.indexOf(匹配字符串):如果字符串1包含匹配字符串，那么值
+                                //就大于-1,如果不包含，就一直等于-1.
+                                $(element).parent().parent().show();
+                            }
+                            setTimeout(function(){
+                                $(element).parent().parent().css("transform","translateX(0)");
+                            },100);
+                        },500);
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="divAll">
+        <div class="divMiddle">
+            <div class="divTop">
+                <h1 id="BlogTitle"><a href="#"><img src="images/LOGO.gif" alt="你我网" /></a></h1>
+            </div>
+            <div class="divNavBar">
+                <ul>
+                    <li><a href="index1.html">首页</a></li>
+                    <li><a href="#" title="感悟生活点滴">大生活</a></li>
+                    <li><a href="#" title="光与影的艺术">光影斑斓</a></li>
+                    <li><a href="#" title="一切有为法，如梦幻泡影，如露亦如电，应作如是观。">如是观</a></li>
+                    <li><a href="#" target="_blank" title="还是以前的圈圈微博！">圈圈说</a></li>
+                    <li><a href="board.html" title="沟通从这里开始">留言本</a></li>
+                </ul>
+            </div>
+            <div class="divMain">
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">明心见性的一段对话</a></h2>
+                    <div class="post-body"><p>一个简易博客的生成，以后需要从此页面做延展......</p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">觉悟</a>&nbsp;&nbsp;<a href="javascript:void(0)">生活</a>&nbsp;&nbsp;<a href="javascript:void(0)">人生</a>&nbsp;&nbsp;<a href="javascript:void(0)">规则</a>&nbsp;&nbsp;</span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn77"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">瞬间的触觉</a></h2>
+                    <div class="post-body"><p>《瞬间的触觉》作者王瑶是中国摄影家协会主席，是一位优秀的摄影家，王瑶在从事新闻摄影工作20多年的时间里，拍摄了大量的优秀新闻作品，曾先后获得世界新闻摄影金奖、中国新闻奖、范长江新闻奖等业界众多重要奖项。王瑶因为工作关系曾经到访过十多个国家，本书是王瑶的一本摄影随笔，讲述了王瑶自己拍摄过程中的感想，对照片的分析，以及王瑶的摄影体会和观点。王瑶不仅从技术层面阐述了她“特定性的瞬间”的观点，并用作品加以印证，并对构图和色彩论述了自己的观点和探索实践的过程。她想要找寻一种自己独特的摄影表达方式，在纪实和诗意的风格中找寻平衡点。她还谈到了摄影人应具备的综合素养、思想观念、价值判断和审美情怀。作者还把摄影融入到当今“互联网＋”的背景下，谈到了她对于影像的展示与传播的思考。作者还对中国摄影人提出在继承创新中多出精品力作，构建具有中国特色的摄影体系，更好地向世界传播...</p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">摄影</a>&nbsp;&nbsp;<a href="javascript:void(0)">过往</a></span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn78"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">穆斯林的葬礼</a></h2>
+                    <div class="post-body"><p>《穆斯林的葬礼》是霍达创作的一部长篇小说，该小说以回族手工匠人梁亦清的玉器作坊奇珍斋升沉起伏为主线，在历史的背景下描写梁家三代人不同的命运变迁，表现了主人公为追求理想和事业，为完善自身素质所发出的蓬勃不息的命运意识。</p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">生活</a>&nbsp;&nbsp;<a href="javascript:void(0)">回忆</a></span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn79"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">东风标致3008 逐乐中国的公告栏</a></h2>
+                    <div class="post-body"><p>从京妞儿到北京爷们，
+                        从三里屯到五道口，
+                        逐乐而活，无处不时尚！
+                        现在，快来上传你认为最能代表中国的时尚元素，书写时尚中国志，做最时尚的逐乐族！更有机会赢取魔音耳机！</p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">旅行</a></span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn80"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">Java World </a></h2>
+                    <div class="post-body"><p>JAVA程序语言的其他几个组都几乎荒废掉，毫无气氛。新建组，将勤奋管理。
+
+                        - 鼓励实用技术讨论
+                        - 鼓励前沿科技讨论
+                        - 鼓励新手发问
+                        - 鼓励老手帮助新手解决技术问题。
+                        - 鼓励其他语言者，了解观摩。
+                        - 鼓励各种级别招聘
+                        - 纯奚落有论点无论据者，斩立决。
+                        - 小广告，斩立决
+                        - 结党吵闹，喷水众，斩监侯。
+
+                        热点帖子置顶，招聘帖子置顶
+
+                        将定期安排一些小比赛，等组人数够多的时候，联系些赞助厂商弄奖品。 </p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">规则</a></span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn81"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+
+                <div class="post">
+                    <h4 class="post-date">2016年3月17日</h4>
+                    <h2 class="post-title"><a href="javascript:void(0)">明心见性的一段对话</a></h2>
+                    <div class="post-body"><p>一个简易博客的生成，以后需要从此页面做延展......</p></div>
+                    <h5 class="post-tags">Tags: <span class="tags"><a href="javascript:void(0)">觉悟</a>&nbsp;&nbsp;<a href="javascript:void(0)">生活</a>&nbsp;&nbsp;<a href="javascript:void(0)">人生</a>&nbsp;&nbsp;<a href="javascript:void(0)">规则</a>&nbsp;&nbsp;</span></h5>
+                    <h6 class="post-footer">
+                        发布:圈圈 | 分类:如是观 | 评论:24 | 浏览:<span id="spn82"></span>
+                        | <a href="javascript:void(0)">阅读全文 > </a>
+                    </h6>
+                </div>
+            </div>
+            <div class="divSidebar">
+                <dl class="function" id="divTags">
+                    <dt class="function_t">按标签浏览</dt>
+                    <dd class="function_c" id="tags">
+                        <ul>
+                            <li class="tag-name tag-name-size-2"><a href="javascript:void(0)">全部<span class="tag-count"> (18)</span></a></li>
+                            <li class="tag-name tag-name-size-2"><a href="javascript:void(0)">觉悟<span class="tag-count"> (18)</span></a></li>
+                            <li class="tag-name tag-name-size-3"><a href="javascript:void(0)">人生<span class="tag-count"> (26)</span></a></li>
+                            <li class="tag-name tag-name-size-2"><a href="javascript:void(0)">摄影<span class="tag-count"> (15)</span></a></li>
+                            <li class="tag-name tag-name-size-2"><a href="javascript:void(0)">爱情<span class="tag-count"> (11)</span></a></li>
+                            <li class="tag-name tag-name-size-3"><a href="javascript:void(0)">心情<span class="tag-count"> (34)</span></a></li>
+                            <li class="tag-name tag-name-size-3"><a href="javascript:void(0)">生活<span class="tag-count"> (28)</span></a></li>
+                            <li class="tag-name tag-name-size-1"><a href="javascript:void(0)">音乐<span class="tag-count"> (6)</span></a></li>
+                            <li class="tag-name tag-name-size-0"><a href="javascript:void(0)">规则<span class="tag-count"> (5)</span></a></li>
+                            <li class="tag-name tag-name-size-0"><a href="javascript:void(0)">夕阳<span class="tag-count"> (1)</span></a></li>
+                            <li class="tag-name tag-name-size-0"><a href="javascript:void(0)">寂寞<span class="tag-count"> (3)</span></a></li>
+                            <li class="tag-name tag-name-size-1"><a href="javascript:void(0)">过往<span class="tag-count"> (8)</span></a></li>
+                            <li class="tag-name tag-name-size-0"><a href="javascript:void(0)">西乡<span class="tag-count"> (3)</span></a></li>
+                            <li class="tag-name tag-name-size-1"><a href="javascript:void(0)">回忆<span class="tag-count"> (8)</span></a></li>
+                            <li class="tag-name tag-name-size-0"><a href="javascript:void(0)">旅行<span class="tag-count"> (1)</span></a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="function" id="divComments">
+                    <dt class="function_t">最新留言</dt>
+                    <dd class="function_c">
+                        <ul><li style="text-overflow:ellipsis;"><a href="javascript:void(0)" title="2016-7-14 20:22:16 post by 卢松松博客">说的很不错呢！</a></li><li style="text-overflow:ellipsis;"><a href="#post/68.html#cmt1491" title="2016-7-12 16:21:06 post by 52微商网">一个很好的微商货源平台，非常适合做微商推</a></li><li style="text-overflow:ellipsis;"><a href="javascript:void(0)" title="2016-7-10 9:48:23 post by 巴力迅猛龙">谢谢博主分享 支持</a></li><li style="text-overflow:ellipsis;"><a href="javascript:void(0)" title="2016-7-8 17:20:43 post by 个人博客">第一次过来看看</a></li><li style="text-overflow:ellipsis;"><a href="#post/76.html#cmt1487" title="2016-7-6 17:08:25 post by 免费小说在线阅读">懂得取舍吧，最好留有后路、</a></li><li style="text-overflow:ellipsis;"><a href="#post/77.html#cmt1486" title="2016-7-5 13:12:38 post by 免费小说在线阅读">靠自己丰衣足食！</a></li><li style="text-overflow:ellipsis;"><a href="#post/77.html#cmt1485" title="2016-7-3 10:53:55 post by 贝蒂斯橄榄油总代理">第一次来，写的不错，关注下</a></li><li style="text-overflow:ellipsis;"><a href="#post/77.html#cmt1484" title="2016-7-2 16:18:16 post by 卢松松博客">当初看这个并没有觉得什么，现在看来里面和</a></li><li style="text-overflow:ellipsis;"><a href="#post/76.html#cmt1483" title="2016-7-2 12:04:12 post by 青岛礼品公司">人生确实就是个赌局，就看赌注和勇气大小了</a></li><li style="text-overflow:ellipsis;"><a href="#post/74.html#cmt1482" title="2016-6-29 15:50:16 post by 青岛小礼品">长大了，烦恼也就多了</a></li></ul>
+                    </dd>
+                </dl>
+                <dl class="function" id="divLinkage">
+                    <dt class="function_t">友情链接</dt>
+                    <dd class="function_c">
+                        <ul><li><a href="http://www.nszbk.com" target="_blank">逆时针博客</a>　<a href="http://www.mybiketimes.com/" target="_blank">单车岁月</a>　<a href="http://www.lopwon.com/" target="_blank">立云图志</a></li><li><a href="http://qingchun.org/"target="_blank">青春</a>　<a href="http://www.gaohaipeng.com" target="_blank">高海鹏博客</a>　<a href="http://www.ccaipu.com/" target="_blank">程晨爱蒲</a>　</li></li><li><a href="http://lusongsong.com/daohang" rel="external nofollow" target="_blank">博客大全</a>　<a href="http://bestcherish.com/" target="_blank">灰常记忆</a>　<a href="http://www.swdsblog.com" target="_blank">随望淡思</a></li><li><a href="http://www.wangzhijun.com.cn" target="_blank">王志军博客</a>　<a href="http://duonuli.com/" target="_blank">多努力网</a></li><li></li><li><a href="http://www.panoramio.com/user/youmew" target="_blank">谷歌地球相册</a></li><li><a href="#t/post-18.html" target="_blank" title="申请链接"><span style="color:#006000;">交换友情链接</span></a></li></ul>
+                    </dd>
+                </dl>
+                <dl class="function" id="divMisc">
+                    <dt class="function_t">分享到：</dt>
+                    <dd class="function_c">
+                        <ul><li><img src="images/weixin.jpg" height="110" width="110" border="0" alt="你我网微信公众平台" title="微信扫一扫，关注圈圈的最新消息。" /></li><li><!-- Baidu Button BEGIN --><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到百度贴吧" href="#" class="bds_tieba" data-cmd="tieba"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["sqq","weixin","qzone","tsina","tieba","douban"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script><!-- Baidu Button END --></li><li><a href="#feed.asp" target="_blank"><img src="images/rss.png" height="31" width="88" border="0" alt="订阅本站的 RSS 2.0 新闻聚合" /></a></li></ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
